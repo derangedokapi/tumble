@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject[] clouds;
-    void Start()
+    [SerializeField] CloudControl[] clouds;
+    [SerializeField] float minSpawnDelay = 1f;
+    [SerializeField] float maxSpawnDelay = 5f;
+    float timeToWait;
+    bool spawn = true;
+    
+    IEnumerator Start()
     {
-        Debug.Log("cloud spawner!");
+        while (spawn) {
+            timeToWait = Random.Range(minSpawnDelay, maxSpawnDelay);
+            yield return new WaitForSeconds(timeToWait);
+            SpawnAttacker();
+        }
+    }
+
+    public void TurnOffSpawn() {
+        spawn = false;
     }
 
     // Update is called once per frame
-    void Update()
+    private void SpawnAttacker()
     {
+        if (!spawn) {return;}
+        if (clouds.Length > 0) {
+            var attackerIndex = Random.Range(0, clouds.Length);
+            Spawn(clouds[attackerIndex]);
+        } else {
+            Debug.LogWarning("No prefab clouds assigned for "+gameObject.name);
+        }
         
     }
+
+    private void Spawn(CloudControl myAttacker) {
+            CloudControl newAttacker = Instantiate(myAttacker, transform.position, transform.rotation) 
+            as CloudControl;
+        newAttacker.transform.parent = transform; 
+    }
 }
+
