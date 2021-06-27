@@ -7,6 +7,7 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] CloudControl[] clouds;
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
+    float speedFactor = 10f;
     float timeToWait;
     bool spawn = true;
     GameStatus gameStatus;
@@ -16,8 +17,8 @@ public class CloudSpawner : MonoBehaviour
         gameStatus = FindObjectOfType<GameStatus>();
         
         while (spawn) {
-            minSpawnDelay = 5 / gameStatus.fallSpeed;
-            maxSpawnDelay = 50 / gameStatus.fallSpeed;
+            minSpawnDelay = speedFactor / gameStatus.fallSpeed;
+            maxSpawnDelay = (speedFactor * 10) / gameStatus.fallSpeed;
             timeToWait = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(timeToWait);
             SpawnAttacker();

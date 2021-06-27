@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 35f;
-    [SerializeField] float padding = 1f;
+    [SerializeField] float padding = 2f;
     float xMin;
     float xMax;
     float yMin;
