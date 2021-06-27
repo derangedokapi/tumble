@@ -5,6 +5,7 @@ using UnityEngine;
 public class CloudControl : MonoBehaviour
 {
     [SerializeField] float speedFactor = 1.3f;
+    [SerializeField] float coinValue = 0;
     float moveSpeed;
 
     GameStatus gameStatus;
@@ -17,5 +18,9 @@ public class CloudControl : MonoBehaviour
     {
         moveSpeed = gameStatus.fallSpeed * speedFactor;
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime, Space.World);
+    }
+
+    public float GetCoinValue() {
+        return coinValue;
     }
 }

@@ -6,8 +6,23 @@ public class GameStatus : MonoBehaviour
 {
     public float fallSpeed = 15f;
 
+    [SerializeField] float coins;
+
     private void Awake() {
         SetUpSingleton();
+    }
+
+    private void Start() {
+        RestartGame();
+    }
+
+    public void RestartGame() {
+        coins = 0;
+    }
+
+    public void ChangeCoins (float amountToChange) {
+        float newAmount = coins + amountToChange;
+        coins = Mathf.Clamp(newAmount, 0, 1000000);
     }
 
     private void SetUpSingleton() {

@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 2f;
     [SerializeField] float tiltAmount = 1.2f;
     [SerializeField] AudioClip moneySound;
+
+    GameStatus gameStatus;
     float xMin;
     float xMax;
 
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     {
         origPos = transform.position;
         SetUpMoveBoundaries();
+        gameStatus = FindObjectOfType<GameStatus>();
     }
 
     private void Update() {
@@ -48,6 +51,7 @@ public class Player : MonoBehaviour
         
         if (other.tag == "Coin") {
             Debug.Log("hit by "+other);
+            gameStatus.ChangeCoins(other.gameObject.GetComponent<CloudControl>().GetCoinValue());
             AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
             Destroy(other.gameObject);
         }
