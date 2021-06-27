@@ -8,13 +8,16 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 2f;
     float xMin;
     float xMax;
-    float yMin;
-    float yMax;
+
+    Vector3 origPos;
+
+
      
 
     // Start is called before the first frame update
     void Start()
     {
+        origPos = transform.position;
         SetUpMoveBoundaries();
     }
 
@@ -24,13 +27,21 @@ public class Player : MonoBehaviour
 
     private void Move() {
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
-     //   var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * moveSpeed;
-
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-      //  var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-      var newYPos = transform.position.y;
-
+        var newYPos = transform.position.y;
         transform.position = new Vector2(newXPos, newYPos);
+        
+        float xPos = gameObject.transform.position.x * 3;
+        transform.rotation = Quaternion.Euler (0, 0, xPos);
+        
+/*
+        Vector3 moveDirection = gameObject.transform.position - origPos;    
+        if (moveDirection != Vector3.zero) 
+        {
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+       }
+       */
     }
 
     private void SetUpMoveBoundaries() {
@@ -38,7 +49,5 @@ public class Player : MonoBehaviour
         // viewport is a 0 to 1 range no matter actual size
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).y + padding;
-        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0,1,0)).y - padding;
     }
 }

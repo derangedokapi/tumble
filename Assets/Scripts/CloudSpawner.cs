@@ -7,7 +7,7 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] CloudControl[] clouds;
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
-    float speedFactor = 10f;
+    float speedFactor = 20f;
     float timeToWait;
     bool spawn = true;
     GameStatus gameStatus;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloudControl : MonoBehaviour
 {
-
+    [SerializeField] float speedFactor = 1.3f;
     float moveSpeed;
 
     GameStatus gameStatus;
@@ -15,7 +15,7 @@ public class CloudControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveSpeed = gameStatus.fallSpeed;
+        moveSpeed = gameStatus.fallSpeed * speedFactor;
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime, Space.World);
     }
 }
