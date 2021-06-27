@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CloudControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    float moveSpeed;
+
+    GameStatus gameStatus;
+    private void Start() {
+        gameStatus = FindObjectOfType<GameStatus>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+        moveSpeed = gameStatus.fallSpeed;
+        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime, Space.World);
     }
 }

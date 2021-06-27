@@ -9,10 +9,15 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] float maxSpawnDelay = 5f;
     float timeToWait;
     bool spawn = true;
+    GameStatus gameStatus;
     
     IEnumerator Start()
     {
+        gameStatus = FindObjectOfType<GameStatus>();
+        
         while (spawn) {
+            minSpawnDelay = 5 / gameStatus.fallSpeed;
+            maxSpawnDelay = 50 / gameStatus.fallSpeed;
             timeToWait = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(timeToWait);
             SpawnAttacker();
