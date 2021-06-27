@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-    [SerializeField] CloudControl[] clouds;
+    [SerializeField] GameObject[] clouds;
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
     float speedFactor = 20f;
@@ -42,9 +42,9 @@ public class CloudSpawner : MonoBehaviour
         
     }
 
-    private void Spawn(CloudControl myAttacker) {
-            CloudControl newAttacker = Instantiate(myAttacker, transform.position, transform.rotation) 
-            as CloudControl;
+    private void Spawn(GameObject myAttacker) {
+            GameObject newAttacker = Instantiate(myAttacker, transform.position, transform.rotation) 
+            as GameObject;
         newAttacker.transform.parent = transform; 
     }
 }

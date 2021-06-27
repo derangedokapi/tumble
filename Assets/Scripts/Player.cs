@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 35f;
     [SerializeField] float padding = 2f;
+    [SerializeField] float tiltAmount = 1.2f;
+    [SerializeField] AudioClip moneySound;
     float xMin;
     float xMax;
 
@@ -31,17 +33,8 @@ public class Player : MonoBehaviour
         var newYPos = transform.position.y;
         transform.position = new Vector2(newXPos, newYPos);
         
-        float xPos = gameObject.transform.position.x * 3;
+        float xPos = gameObject.transform.position.x * tiltAmount;
         transform.rotation = Quaternion.Euler (0, 0, xPos);
-        
-/*
-        Vector3 moveDirection = gameObject.transform.position - origPos;    
-        if (moveDirection != Vector3.zero) 
-        {
-            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-       }
-       */
     }
 
     private void SetUpMoveBoundaries() {
@@ -49,5 +42,15 @@ public class Player : MonoBehaviour
         // viewport is a 0 to 1 range no matter actual size
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0,0,0)).x + padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1,0,0)).x - padding;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+        if (other.tag == "Coin") {
+            Debug.Log("hit by "+other);
+            AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
+            Destroy(other.gameObject);
+        }
+    
     }
 }
