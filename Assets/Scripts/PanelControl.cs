@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PanelControl : MonoBehaviour
 {
+    CanvasGroup thisCanvas;
     private void Awake() {
-        gameObject.SetActive(false);
+        thisCanvas = GetComponent<CanvasGroup>();
+        HidePanel();
+    }
+
+    public void TogglePanel() {
+        bool panelIsShowing = thisCanvas.interactable;
+        if (panelIsShowing) {
+            HidePanel();
+        } else {
+            ShowPanel();
+        }
+
     }
     public void ShowPanel() {
-        gameObject.SetActive(true);
+        thisCanvas.alpha = 1;
+        thisCanvas.interactable = true;
+        Time.timeScale = 0;
     }
 
     public void HidePanel() {
-        gameObject.SetActive(false);
+        Time.timeScale = 1;
+        thisCanvas.alpha = 0;
+        thisCanvas.interactable = false;
     }
 }

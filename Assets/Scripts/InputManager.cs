@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     private void Update() {
         if (Input.GetButtonDown("Cancel")) {
             Debug.Log("esc!");
-            escapePanel.ShowPanel();
+            escapePanel.TogglePanel();
         }
     }
 }
