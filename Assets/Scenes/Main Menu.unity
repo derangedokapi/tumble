@@ -408,14 +408,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 817866827}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &154534220
@@ -492,7 +492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.9999981, y: 86.520004}
+  m_AnchoredPosition: {x: -1.9999981, y: 86.52002}
   m_SizeDelta: {x: 126.44, y: 31.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &214363971
