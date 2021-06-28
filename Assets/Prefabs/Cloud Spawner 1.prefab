@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clouds:
-  - {fileID: 0}
+  - {fileID: 5201363972652181781, guid: 237fdf2f7de438948adc9ac6620a182d, type: 3}
   - {fileID: 1011619213672428154, guid: efc350b61f37922408a1ec0f30766422, type: 3}
   - {fileID: 1011619213672428154, guid: e1499b69a2e87374eb158328598955bb, type: 3}
   - {fileID: 1011619213672428154, guid: c1426c4860681f3469ddb82d66152b92, type: 3}
@@ -55,6 +55,14 @@ MonoBehaviour:
   - {fileID: 1011619213672428154, guid: 23d178eabab24084e8749d7716ba7940, type: 3}
   - {fileID: 1011619213672428154, guid: 22c3745dd7a56314d877c88f743264b8, type: 3}
   - {fileID: 1011619213672428154, guid: 6e9bbbe23bb3283449ddefa22c2bb0ee, type: 3}
+  - {fileID: 5201363972652181781, guid: d64a4ce4d839ca94893b2846d51e60cf, type: 3}
+  - {fileID: 5201363972652181781, guid: d64a4ce4d839ca94893b2846d51e60cf, type: 3}
+  - {fileID: 5201363972652181781, guid: 96cd2e5ebdac74c4498de5c30b4c1737, type: 3}
+  - {fileID: 5201363972652181781, guid: 96cd2e5ebdac74c4498de5c30b4c1737, type: 3}
+  - {fileID: 5201363972652181781, guid: 96cd2e5ebdac74c4498de5c30b4c1737, type: 3}
+  - {fileID: 6678637533712282881, guid: 1683d895bb5010f44a092f40bdf901ff, type: 3}
+  - {fileID: 6678637533712282881, guid: 1683d895bb5010f44a092f40bdf901ff, type: 3}
+  - {fileID: 6678637533712282881, guid: 1683d895bb5010f44a092f40bdf901ff, type: 3}
   minSpawnDelay: 1
   maxSpawnDelay: 5
 --- !u!1001 &6799450873871292727

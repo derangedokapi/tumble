@@ -49,13 +49,21 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         
-        if (other.tag == "Coin") {
-            gameStatus.ChangeCoins(other.gameObject.GetComponent<CloudControl>().GetCoinValue());
-            if (gameStatus.musicVolume > .0001) {
-                AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
-            }
-            Destroy(other.gameObject);
+        switch (other.tag) {
+            case "Coin":
+                gameStatus.ChangeCoins(other.gameObject.GetComponent<CloudControl>().GetCoinValue());
+                if (gameStatus.musicVolume > .0001) {
+                    AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
+                }
+                Destroy(other.gameObject);
+                break;
+            case "Enemy":
+                gameStatus.PlayerTakeDamage(other.gameObject.GetComponent<EnemyControl>().GetDamageFactor());
+                break;
+            
         }
     
     }
+
+
 }

@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameStatus : MonoBehaviour
 {
     public float fallSpeed = 15f;
 
     [SerializeField] float coins;
+
+    Slider healthSlider;
+
+    public float playerHealth = 100f;
 
     [Header("Sound")]
     public float musicVolume = 1f;
@@ -18,6 +23,7 @@ public class GameStatus : MonoBehaviour
     }
 
     private void Start() {
+        
         RestartGame();
     }
 
@@ -28,6 +34,10 @@ public class GameStatus : MonoBehaviour
     public void ChangeCoins (float amountToChange) {
         float newAmount = coins + amountToChange;
         coins = Mathf.Clamp(newAmount, 0, 1000000);
+    }
+
+    public float GetCoinTotal() {
+        return coins;
     }
 
     private void SetUpSingleton() {
@@ -42,6 +52,10 @@ public class GameStatus : MonoBehaviour
     public void ChangeMusicVolume(float newVolume) {
         musicSource.volume = newVolume;
         musicVolume = newVolume;
+    }
+
+    public void PlayerTakeDamage(float damageAmount) {
+        playerHealth -= damageAmount;
     }
 
 }
