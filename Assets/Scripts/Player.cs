@@ -50,9 +50,10 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         
         if (other.tag == "Coin") {
-            Debug.Log("hit by "+other);
             gameStatus.ChangeCoins(other.gameObject.GetComponent<CloudControl>().GetCoinValue());
-            AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
+            if (gameStatus.musicVolume > .0001) {
+                AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
+            }
             Destroy(other.gameObject);
         }
     

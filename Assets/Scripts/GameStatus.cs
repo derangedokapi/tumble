@@ -8,6 +8,11 @@ public class GameStatus : MonoBehaviour
 
     [SerializeField] float coins;
 
+    [Header("Sound")]
+    public float musicVolume = 1f;
+    public float sfxVolume = 1f;
+    [SerializeField] AudioSource musicSource;
+
     private void Awake() {
         SetUpSingleton();
     }
@@ -33,4 +38,10 @@ public class GameStatus : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public void ChangeMusicVolume(float newVolume) {
+        musicSource.volume = newVolume;
+        musicVolume = newVolume;
+    }
+
 }

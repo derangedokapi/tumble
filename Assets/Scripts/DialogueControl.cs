@@ -5,16 +5,43 @@ using TMPro;
 
 public class DialogueControl : MonoBehaviour
 {
+    [SerializeField] float secondsPerMessage = 3f;
     [SerializeField] TextMeshProUGUI dialogueText;
-    // Start is called before the first frame update
-    void Start()
-    {
-        dialogueText.text = "Use the left and right arrows to move";
+    [SerializeField] string[] introductionText;
+    
+    [SerializeField] string[] randomThoughts;
+
+    int introductionIndex = 0;
+
+    private void Start() {
+        PopulateWords(introductionText[introductionIndex]);
+        StartCoroutine("PlayInstructions");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    IEnumerator PlayInstructions() {
+        while (true) {
+            yield return new WaitForSeconds(secondsPerMessage);
+            if (introductionIndex < introductionText.Length) {
+                PopulateWords(introductionText[introductionIndex]);
+                introductionIndex++;
+            } else {
+                ChooseRandomDialogue();
+            }
+        }
         
+       
+    }
+
+    private void ChooseRandomDialogue() {
+        PopulateWords(ReturnRandomFromList(randomThoughts));
+    }
+
+    public void PopulateWords(string str) {
+        dialogueText.text = str;        
+    }
+
+    private string ReturnRandomFromList(string[] list) {
+        var index = Random.Range(0, list.Length);
+        return (list[index]);
     }
 }
