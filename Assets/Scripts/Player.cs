@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip moneySound;
 
     GameStatus gameStatus;
+    Animator myAnimator;
+
+    AudioControl gameAudio;
+
     float xMin;
     float xMax;
 
@@ -24,6 +28,8 @@ public class Player : MonoBehaviour
         origPos = transform.position;
         SetUpMoveBoundaries();
         gameStatus = FindObjectOfType<GameStatus>();
+        myAnimator = GetComponent<Animator>();
+        gameAudio = FindObjectOfType<AudioControl>();
     }
 
     private void Update() {
@@ -58,11 +64,21 @@ public class Player : MonoBehaviour
                 Destroy(other.gameObject);
                 break;
             case "Enemy":
-                gameStatus.PlayerTakeDamage(other.gameObject.GetComponent<EnemyControl>().GetDamageFactor());
+                EnemyControl enemy = other.gameObject.GetComponent<EnemyControl>();
+                float damage = enemy.Die();
+                gameStatus.PlayerTakeDamage(damage);
+                myAnimator.SetTrigger("Damage");
+                
+                //Destroy(other.gameObject);
                 break;
             
         }
     
+    }
+
+    public void DamageOver() {
+        //myAnimator.ResetTrigger("Damage");
+        myAnimator.SetBool("isIdle", true);
     }
 
 
