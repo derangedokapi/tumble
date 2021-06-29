@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 35f;
     [SerializeField] float padding = 2f;
     [SerializeField] float tiltAmount = 1.2f;
-    [SerializeField] AudioClip moneySound;
+
 
     GameStatus gameStatus;
     Animator myAnimator;
@@ -57,11 +57,7 @@ public class Player : MonoBehaviour
         
         switch (other.tag) {
             case "Coin":
-                gameStatus.ChangeCoins(other.gameObject.GetComponent<CloudControl>().GetCoinValue());
-                if (gameStatus.musicVolume > .0001) {
-                    AudioSource.PlayClipAtPoint(moneySound, Camera.main.transform.position);
-                }
-                Destroy(other.gameObject);
+                other.gameObject.GetComponent<CoinControl>().PickupCoin();
                 break;
             case "Enemy":
                 EnemyControl enemy = other.gameObject.GetComponent<EnemyControl>();
