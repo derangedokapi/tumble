@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     Animator myAnimator;
 
     AudioControl gameAudio;
+    Rigidbody2D myRigidBody;
 
     float xMin;
     float xMax;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
         gameStatus = FindObjectOfType<GameStatus>();
         myAnimator = GetComponent<Animator>();
         gameAudio = FindObjectOfType<AudioControl>();
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
@@ -75,6 +77,10 @@ public class Player : MonoBehaviour
     public void DamageOver() {
         //myAnimator.ResetTrigger("Damage");
         myAnimator.SetBool("isIdle", true);
+    }
+
+    public void FallToGround() {
+        myRigidBody.bodyType = RigidbodyType2D.Dynamic;
     }
 
 

@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f280b1f56be70489ecd6060ed9ddf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloudSpawnerParent: {fileID: 0}
+  player: {fileID: 0}

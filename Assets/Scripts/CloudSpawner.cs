@@ -8,7 +8,7 @@ public class CloudSpawner : MonoBehaviour
     [SerializeField] GameObject[] clouds;
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
-    
+    [SerializeField] float horizontalVariance = 5f;
     
     float speedFactor = 20f;
     float timeToWait;
@@ -48,11 +48,21 @@ public class CloudSpawner : MonoBehaviour
 
     private void Spawn(GameObject myAttacker) {
         var signMult = Random.Range(0,1) < .5? 1 : -1;
-        var newPos = new Vector3(transform.position.x + Random.Range(-1,1), transform.position.y + Random.Range(-1,1), transform.position.z);
+        
+        var newPos = new Vector3(transform.position.x + Random.Range(-horizontalVariance,horizontalVariance), transform.position.y, transform.position.z);
             GameObject newAttacker = Instantiate(myAttacker, newPos, transform.rotation) 
             as GameObject;
         newAttacker.transform.localScale = new Vector3(1,1,signMult);
         newAttacker.transform.parent = transform; 
+    }
+
+    public void StopSpawning() {
+        spawn = false;
+        // pause the clouds of children?
+        if (transform.childCount == 0) return;
+        foreach (Transform child in transform) {
+            child.GetComponent<CloudControl>().StopMoving();
+        }
     }
 
    
