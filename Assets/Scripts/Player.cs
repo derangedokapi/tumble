@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     GameStatus gameStatus;
     Animator myAnimator;
 
+    InputManager inputManager;
+
     AudioControl gameAudio;
     Rigidbody2D myRigidBody;
 
@@ -19,6 +21,9 @@ public class Player : MonoBehaviour
     float xMax;
 
     Vector3 origPos;
+
+    bool moving = true;
+
 
 
      
@@ -32,6 +37,8 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         gameAudio = FindObjectOfType<AudioControl>();
         myRigidBody = GetComponent<Rigidbody2D>();
+        inputManager = FindObjectOfType<InputManager>();
+
     }
 
     private void Update() {
@@ -39,6 +46,7 @@ public class Player : MonoBehaviour
     }
 
     private void Move() {
+        if (!moving) return;
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         var newYPos = transform.position.y;
@@ -56,7 +64,6 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        
         switch (other.tag) {
             case "Coin":
                 other.gameObject.GetComponent<CoinControl>().PickupCoin();
@@ -69,6 +76,12 @@ public class Player : MonoBehaviour
                 
                 //Destroy(other.gameObject);
                 break;
+            case "Ground":
+                Debug.Log(gameObject+" hit "+other);
+                moving = false;
+                myRigidBody.bodyType = RigidbodyType2D.Static;
+                inputManager.LoadLevelPanel();
+                break;
             
         }
     
@@ -80,8 +93,14 @@ public class Player : MonoBehaviour
     }
 
     public void FallToGround() {
+        Debug.Log("falling to ground");
+        moving = false;
         myRigidBody.bodyType = RigidbodyType2D.Dynamic;
     }
+
+
+
+   
 
 
 }

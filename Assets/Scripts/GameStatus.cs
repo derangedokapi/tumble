@@ -18,6 +18,11 @@ public class GameStatus : MonoBehaviour
     public float sfxVolume = 1f;
     [SerializeField] AudioSource musicSource;
 
+    [Header("Levels")]
+    [SerializeField] LevelConfigSO[] levelConfigOptions;
+    
+    int currentLevel = 0;
+
     private void Awake() {
         SetUpSingleton();
     }
@@ -57,5 +62,6 @@ public class GameStatus : MonoBehaviour
     public void PlayerTakeDamage(float damageAmount) {
         playerHealth -= damageAmount;
     }
+
 
 }

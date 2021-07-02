@@ -61,7 +61,10 @@ public class CloudSpawner : MonoBehaviour
         // pause the clouds of children?
         if (transform.childCount == 0) return;
         foreach (Transform child in transform) {
-            child.GetComponent<CloudControl>().StopMoving();
+            var cloudControl = child.GetComponent<CloudControl>();
+            if (cloudControl) {
+                child.GetComponent<CloudControl>().StopMoving();
+            }
         }
     }
 

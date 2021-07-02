@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class FallSlider : MonoBehaviour
 {
 
-    float levelTime = 30f;
+    [SerializeField] float fallThreshold = 0.95f;
+     [SerializeField] float levelTime = 30f;
     bool timerFinished = false;
+    
 
     LevelController levelController;
     
@@ -18,11 +20,12 @@ public class FallSlider : MonoBehaviour
     void Update()
     {
         if (timerFinished) { return; }
-        GetComponent<Slider>().value = Time.timeSinceLevelLoad / levelTime;
-        timerFinished = Time.timeSinceLevelLoad >= levelTime;
-        if (timerFinished) {
+        var percLeft = Time.timeSinceLevelLoad / levelTime;
+        GetComponent<Slider>().value = percLeft;
+        //timerFinished = Time.timeSinceLevelLoad >= levelTime;
+        if (percLeft >= fallThreshold) {
+            timerFinished = true;
             levelController.EndLevel();
-
         }
     }
 

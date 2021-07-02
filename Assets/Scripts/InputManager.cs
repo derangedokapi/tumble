@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] PanelControl escapePanel;
+    [SerializeField] PanelControl levelPanel;
     private void Update() {
         if (Input.GetButtonDown("Cancel")) {
-            Debug.Log("esc!");
             escapePanel.TogglePanel();
+            levelPanel.HidePanel();
         }
+    }
+
+    public void LoadLevelPanel() {
+        levelPanel.ShowPanel();
     }
 }

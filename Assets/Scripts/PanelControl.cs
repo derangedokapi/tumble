@@ -5,11 +5,15 @@ using UnityEngine.UI;
 
 public class PanelControl : MonoBehaviour
 {
+    // for the pause menu via escape button, used by InputManager
+    // for the game over module, called by GameStatus
     CanvasGroup thisCanvas;
     private void Awake() {
         thisCanvas = GetComponent<CanvasGroup>();
         HidePanel();
     }
+
+   
 
     public void TogglePanel() {
         bool panelIsShowing = thisCanvas.interactable;
@@ -21,6 +25,7 @@ public class PanelControl : MonoBehaviour
 
     }
     public void ShowPanel() {
+        Debug.Log("trying to show panel "+thisCanvas);
         thisCanvas.alpha = 1;
         thisCanvas.interactable = true;
         Time.timeScale = 0;
@@ -30,5 +35,9 @@ public class PanelControl : MonoBehaviour
         Time.timeScale = 1;
         thisCanvas.alpha = 0;
         thisCanvas.interactable = false;
+    }
+
+    public void EndLevel() {
+        
     }
 }
