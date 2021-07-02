@@ -46,7 +46,7 @@ public class LevelController : MonoBehaviour
     }
 
     public void LoadNextLevel() {
-        Debug.Log("load next level");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
