@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CloudSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject[] clouds;
+    public GameObject[] clouds;
     [SerializeField] float minSpawnDelay = 1f;
     [SerializeField] float maxSpawnDelay = 5f;
     [SerializeField] float horizontalVariance = 5f;
@@ -13,16 +13,18 @@ public class CloudSpawner : MonoBehaviour
     float speedFactor = 20f;
     float timeToWait;
     bool spawn = true;
-    GameStatus gameStatus;
+   // GameStatus gameStatus;
+    LevelConfigSO levelConfig;
 
 
     
     IEnumerator Start()
     {
-        gameStatus = FindObjectOfType<GameStatus>();
+       // gameStatus = FindObjectOfType<GameStatus>();
+        levelConfig = FindObjectOfType<LevelController>().gameLevelObject;
         while (spawn) {
-            minSpawnDelay = speedFactor / gameStatus.fallSpeed;
-            maxSpawnDelay = (speedFactor * 10) / gameStatus.fallSpeed;
+            minSpawnDelay = speedFactor / levelConfig.fallSpeed;
+            maxSpawnDelay = (speedFactor * 10) / levelConfig.fallSpeed;
             timeToWait = Random.Range(minSpawnDelay, maxSpawnDelay);
             yield return new WaitForSeconds(timeToWait);
             SpawnAttacker();

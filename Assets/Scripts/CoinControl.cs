@@ -12,15 +12,17 @@ public class CoinControl : MonoBehaviour
     AudioControl gameAudio;
 
     GameStatus gameStatus;
+    LevelConfigSO levelConfig;
     private void Start() {
         gameAudio = FindObjectOfType<AudioControl>();
         gameStatus = FindObjectOfType<GameStatus>();
+        levelConfig = FindObjectOfType<LevelController>().gameLevelObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveSpeed = gameStatus.fallSpeed * speedFactor;
+        moveSpeed = levelConfig.fallSpeed * speedFactor;
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime, Space.World);
     }
 
@@ -29,7 +31,6 @@ public class CoinControl : MonoBehaviour
     }
 
     public void PickupCoin() {
-        Debug.Log("PICKUP" + gameObject);
         gameAudio.PlaySound(pickupAudioClip);
         gameStatus.ChangeCoins(coinValue);
         Destroy(gameObject);

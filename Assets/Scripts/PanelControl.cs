@@ -27,13 +27,13 @@ public class PanelControl : MonoBehaviour
 
     }
     public void ShowPanel() {
-        canvasControl.DeactivateAllChildren();
-        Debug.Log("trying to show panel "+thisCanvas);
+        
+        
         thisCanvas.alpha = 1;
         thisCanvas.interactable = true;
-        thisCanvas.gameObject.SetActive(true);
         Time.timeScale = 0;
-
+    canvasControl.DeactivateAllChildren();
+    thisCanvas.gameObject.SetActive(true);
     }
 
     public void HidePanel() {

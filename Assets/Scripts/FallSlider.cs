@@ -14,9 +14,12 @@ public class FallSlider : MonoBehaviour
     LevelController levelController;
     
     void Start() {
-        //levelTime = FindObjectOfType<LevelController>().GetLevelDuration();
+
         levelController = FindObjectOfType<LevelController>();
+                levelTime = levelController.gameLevelObject.levelDuration;
+        Debug.Log("setting level time to "+levelTime);
     }
+    
     void Update()
     {
         if (timerFinished) { return; }

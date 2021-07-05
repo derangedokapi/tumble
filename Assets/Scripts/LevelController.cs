@@ -12,6 +12,8 @@ public class LevelController : MonoBehaviour
 
     InputManager inputManager;
     GameStatus gameStatus;
+
+    public LevelConfigSO gameLevelObject;
     
     private void Awake() {
         inputManager = FindObjectOfType<InputManager>();
@@ -22,8 +24,12 @@ public class LevelController : MonoBehaviour
    
     private void ConfigureLevel() {
         
-        var gameLevelObj = gameStatus.levelConfigOptions[gameStatus.currentLevel];
-        Debug.Log("current level = "+gameStatus.currentLevel+" obj = "+gameLevelObj);
+     
+        gameLevelObject = gameStatus.levelConfigOptions[gameStatus.currentLevel];
+        Debug.Log("current level = "+gameStatus.currentLevel+" obj = "+gameLevelObject);
+        foreach (Transform child in cloudSpawnerParent.transform) {
+            child.GetComponent<CloudSpawner>().clouds = gameLevelObject.availableEnemies;
+        }
         // set the level time and then initialize the timer
     }
     public void QuitGame() {
@@ -35,8 +41,14 @@ public class LevelController : MonoBehaviour
     }
 
     public void LoadSceneByName(string sceneName) {
-        Debug.Log("Loading scene "+sceneName);       
+        Debug.Log("Loading scene "+sceneName);     
+        switch (sceneName) {
+            case "Main Menu":
+                gameStatus.RestartGame();
+                break;
+        }  
         SceneManager.LoadScene(sceneName);
+        
     }
 
     public void EndLevel() {
@@ -54,6 +66,10 @@ public class LevelController : MonoBehaviour
         Debug.Log("load next level");
         gameStatus.currentLevel++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ShowEndLevelOptions() {
+
     }
 
 }

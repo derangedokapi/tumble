@@ -9,16 +9,20 @@ public class CloudControl : MonoBehaviour
     float moveSpeed;
     bool moving = true;
 
-    GameStatus gameStatus;
+    
+
+    //GameStatus gameStatus;
+    LevelConfigSO levelConfig;
     private void Start() {
-        gameStatus = FindObjectOfType<GameStatus>();
+        //gameStatus = FindObjectOfType<GameStatus>();
+        levelConfig = FindObjectOfType<LevelController>().gameLevelObject;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!moving) return;
-        moveSpeed = gameStatus.fallSpeed * speedFactor;
+        moveSpeed = levelConfig.fallSpeed * speedFactor;
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime, Space.World);
     }
 

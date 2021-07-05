@@ -11,23 +11,24 @@ public class EnemyControl : MonoBehaviour
     float moveSpeed;
     bool alive;
 
-    GameStatus gameStatus;
+    LevelConfigSO levelConfig;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
     private void Start() {
         alive = true;
-        gameStatus = FindObjectOfType<GameStatus>();
         gameAudio = FindObjectOfType<AudioControl>();
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        levelConfig = FindObjectOfType<LevelController>().gameLevelObject;
     }
 
     // Update is called once per frame
+
     void Update()
     {
         if (alive) {
-            moveSpeed = gameStatus.fallSpeed * speedFactor;
+            moveSpeed = levelConfig.fallSpeed * speedFactor;
             transform.Translate(Vector3.up * moveSpeed * Time.deltaTime, Space.World);
         }
         

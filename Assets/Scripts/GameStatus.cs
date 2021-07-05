@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameStatus : MonoBehaviour
 {
-    public float fallSpeed = 15f;
+
 
     [SerializeField] float coins;
     float lastCoins = 0;
@@ -70,6 +70,8 @@ public class GameStatus : MonoBehaviour
     public void PlayerTakeDamage(float damageAmount) {
         playerHealth -= damageAmount;
     }
+
+
 
 
 }
