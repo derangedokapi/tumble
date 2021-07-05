@@ -180,3 +180,4 @@ MonoBehaviour:
   levelConfigOptions:
   - {fileID: 11400000, guid: d8340eaff6dca8c4a8a4106625ce180d, type: 2}
   - {fileID: 11400000, guid: 282dce03aadef054ea6be16cd210c966, type: 2}
+  - {fileID: 11400000, guid: fd55b850b863a2946b7f9dffd6621e6e, type: 2}

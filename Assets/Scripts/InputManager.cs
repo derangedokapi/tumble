@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     }
 
     public void LoadLevelPanel() {
+        Destroy(escapePanel.gameObject);
         levelPanel.ShowPanel();
     }
 }

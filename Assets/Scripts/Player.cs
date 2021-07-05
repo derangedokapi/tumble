@@ -77,10 +77,17 @@ public class Player : MonoBehaviour
                 //Destroy(other.gameObject);
                 break;
             case "Ground":
-                Debug.Log(gameObject+" hit "+other);
+                
                 moving = false;
                 myRigidBody.bodyType = RigidbodyType2D.Static;
-                inputManager.LoadLevelPanel();
+                var moreLevels = (gameStatus.currentLevel + 1) < gameStatus.levelConfigOptions.Length;
+                Debug.Log("testing if "+(gameStatus.currentLevel+1)+" < "+gameStatus.levelConfigOptions.Length+" ?"+moreLevels);
+                if (moreLevels) {
+                    inputManager.LoadLevelPanel();
+                } else {
+                    Debug.LogWarning("No levels left? current is "+(gameStatus.currentLevel+1));
+                }
+                
                 break;
             
         }

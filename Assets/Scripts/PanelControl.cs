@@ -16,7 +16,7 @@ public class PanelControl : MonoBehaviour
    
 
     public void TogglePanel() {
-        bool panelIsShowing = thisCanvas.interactable;
+        bool panelIsShowing = thisCanvas.alpha == 1;
         if (panelIsShowing) {
             HidePanel();
         } else {
@@ -27,14 +27,14 @@ public class PanelControl : MonoBehaviour
     public void ShowPanel() {
         Debug.Log("trying to show panel "+thisCanvas);
         thisCanvas.alpha = 1;
-        thisCanvas.interactable = true;
+        //thisCanvas.interactable = true;
         Time.timeScale = 0;
     }
 
     public void HidePanel() {
         Time.timeScale = 1;
         thisCanvas.alpha = 0;
-        thisCanvas.interactable = false;
+        //thisCanvas.interactable = false;
     }
 
     public void EndLevel() {

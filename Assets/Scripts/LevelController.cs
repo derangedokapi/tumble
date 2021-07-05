@@ -11,15 +11,19 @@ public class LevelController : MonoBehaviour
     [SerializeField] GroundControl ground;
 
     InputManager inputManager;
+    GameStatus gameStatus;
     
     private void Awake() {
+        inputManager = FindObjectOfType<InputManager>();
+        gameStatus = FindObjectOfType<GameStatus>();
         ConfigureLevel();
     }
 
-    private void Start() {
-        inputManager = FindObjectOfType<InputManager>();
-    }
+   
     private void ConfigureLevel() {
+        
+        var gameLevelObj = gameStatus.levelConfigOptions[gameStatus.currentLevel];
+        Debug.Log("current level = "+gameStatus.currentLevel+" obj = "+gameLevelObj);
         // set the level time and then initialize the timer
     }
     public void QuitGame() {
@@ -31,6 +35,7 @@ public class LevelController : MonoBehaviour
     }
 
     public void LoadSceneByName(string sceneName) {
+        Debug.Log("Loading scene "+sceneName);       
         SceneManager.LoadScene(sceneName);
     }
 
@@ -46,6 +51,8 @@ public class LevelController : MonoBehaviour
     }
 
     public void LoadNextLevel() {
+        Debug.Log("load next level");
+        gameStatus.currentLevel++;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
