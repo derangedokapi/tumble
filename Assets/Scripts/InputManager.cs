@@ -7,15 +7,17 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] PanelControl escapePanel;
     [SerializeField] PanelControl levelPanel;
+
+    bool levelOver = false;
     private void Update() {
-        if (Input.GetButtonDown("Cancel")) {
+        if (!levelOver && Input.GetButtonDown("Cancel")) {
             escapePanel.TogglePanel();
             levelPanel.HidePanel();
         }
     }
 
     public void LoadLevelPanel() {
-        Destroy(escapePanel.gameObject);
+        levelOver = true;
         levelPanel.ShowPanel();
     }
 }
