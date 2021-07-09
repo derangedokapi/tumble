@@ -17,7 +17,7 @@ public class UIStatsSummary : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreSummary.text = "Last score: "+gameStatus.highCoins+"\nHigh score: "+gameStatus.highCoins;
+        scoreSummary.text = "Last score: "+gameStatus.lastCoins+"\nHigh score: "+gameStatus.highCoins;
     
     }
 }

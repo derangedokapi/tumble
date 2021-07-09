@@ -46,7 +46,7 @@ public class PanelControl : MonoBehaviour
 
     public void HidePanel() {
         Time.timeScale = 1;
-        thisCanvas.alpha = 0.1f;
+        thisCanvas.alpha = 0.0001f;
         canvasControl.ActivateAllChildren();
         thisCanvas.interactable = false;
         thisCanvas.gameObject.SetActive(false);

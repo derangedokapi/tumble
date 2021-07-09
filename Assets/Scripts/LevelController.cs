@@ -27,7 +27,12 @@ public class LevelController : MonoBehaviour
         
     }
 
-   
+    private void Start() {
+        inputManager = FindObjectOfType<InputManager>();
+        gameStatus = FindObjectOfType<GameStatus>();
+        messageControl = FindObjectOfType<DialogueControl>();
+    }
+    
     private void ConfigureLevel() {
         
      
