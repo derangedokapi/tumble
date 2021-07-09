@@ -15,7 +15,7 @@ MonoBehaviour:
   levelName: Super fast fall!
   levelDescription: You might get a bit dizzy
   levelDuration: 30
-  fallSpeed: 150
+  fallSpeed: 100
   availableEnemies:
   - {fileID: 1011619213672428154, guid: efc350b61f37922408a1ec0f30766422, type: 3}
   - {fileID: 1011619213672428154, guid: e1499b69a2e87374eb158328598955bb, type: 3}
