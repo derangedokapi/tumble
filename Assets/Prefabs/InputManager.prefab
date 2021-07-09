@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escapePanel: {fileID: 0}
   levelPanel: {fileID: 0}
+  gameOverPanel: {fileID: 7542441363129185428, guid: 5473a43b63026f148a68e17301a827dc, type: 3}

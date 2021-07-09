@@ -7,9 +7,9 @@ public class GameStatus : MonoBehaviour
 {
 
 
-    [SerializeField] float coins;
-    float lastCoins = 0;
-    float highCoins = 0;
+    public float coins;
+    public float lastCoins = 0;
+    public float highCoins = 0;
 
     Slider healthSlider;
 
@@ -24,7 +24,9 @@ public class GameStatus : MonoBehaviour
     [Header("Levels")]
     public LevelConfigSO[] levelConfigOptions;
     
-    public int currentLevel = 0;
+    public int currentLevel;
+
+InputManager inputManager;
 
     private void Awake() {
         SetUpSingleton();
@@ -32,15 +34,18 @@ public class GameStatus : MonoBehaviour
 
     private void Start() {
         originalHealth = playerHealth;
+        inputManager = FindObjectOfType<InputManager>();
         RestartGame();
     }
 
     public void RestartGame() {
-        lastCoins = coins;
+        
         if (coins > highCoins) { 
             highCoins = coins;
         }
+        lastCoins = coins;
         coins = 0;
+        currentLevel = 0;
         playerHealth = originalHealth;
     }
 
@@ -69,6 +74,9 @@ public class GameStatus : MonoBehaviour
 
     public void PlayerTakeDamage(float damageAmount) {
         playerHealth -= damageAmount;
+        if (playerHealth <= 0){
+            inputManager.LoadGameOverPanel();
+        }
     }
 
 

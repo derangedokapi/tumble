@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
                 if (moreLevels) {
                     inputManager.LoadLevelPanel();
                 } else {
-                    Debug.LogWarning("No levels left? current is "+(gameStatus.currentLevel+1));
+                    inputManager.LoadGameOverPanel();
                 }
                 
                 break;

@@ -12,13 +12,19 @@ public class LevelController : MonoBehaviour
 
     InputManager inputManager;
     GameStatus gameStatus;
+    DialogueControl messageControl;
 
     public LevelConfigSO gameLevelObject;
     
     private void Awake() {
         inputManager = FindObjectOfType<InputManager>();
         gameStatus = FindObjectOfType<GameStatus>();
-        ConfigureLevel();
+        messageControl = FindObjectOfType<DialogueControl>();
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
+        //if (SceneManager.GetActiveScene().buildIndex > 0) {
+            ConfigureLevel();
+        //}
+        
     }
 
    
@@ -27,9 +33,15 @@ public class LevelController : MonoBehaviour
      
         gameLevelObject = gameStatus.levelConfigOptions[gameStatus.currentLevel];
         Debug.Log("current level = "+gameStatus.currentLevel+" obj = "+gameLevelObject);
-        foreach (Transform child in cloudSpawnerParent.transform) {
-            child.GetComponent<CloudSpawner>().clouds = gameLevelObject.availableEnemies;
+        if (cloudSpawnerParent != null) {
+            foreach (Transform child in cloudSpawnerParent.transform) {
+                child.GetComponent<CloudSpawner>().clouds = gameLevelObject.availableEnemies;
+            }
         }
+        if (messageControl != null) {
+            messageControl.introductionText = gameLevelObject.levelMessages;
+        }
+        
         // set the level time and then initialize the timer
     }
     public void QuitGame() {

@@ -46,3 +46,4 @@ MonoBehaviour:
   cloudSpawnerParent: {fileID: 0}
   player: {fileID: 0}
   ground: {fileID: 0}
+  gameLevelObject: {fileID: 0}

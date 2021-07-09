@@ -7,7 +7,7 @@ public class DialogueControl : MonoBehaviour
 {
     [SerializeField] float secondsPerMessage = 3f;
     [SerializeField] TextMeshProUGUI dialogueText;
-    [SerializeField] string[] introductionText;
+    public string[] introductionText;
     
     [SerializeField] string[] randomThoughts;
 
@@ -16,6 +16,7 @@ public class DialogueControl : MonoBehaviour
     private void Start() {
         PopulateWords(introductionText[introductionIndex]);
         StartCoroutine("PlayInstructions");
+        Debug.Log("Dialog is attached to "+gameObject);
     }
 
     IEnumerator PlayInstructions() {

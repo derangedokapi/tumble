@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: Bees!
   levelDescription: Feel the sting!
-  levelDuration: 45
+  levelDuration: 15
   fallSpeed: 75
   availableEnemies:
   - {fileID: 1011619213672428154, guid: efc350b61f37922408a1ec0f30766422, type: 3}
@@ -33,4 +33,6 @@ MonoBehaviour:
   - {fileID: 5201363972652181781, guid: 96cd2e5ebdac74c4498de5c30b4c1737, type: 3}
   - {fileID: 5201363972652181781, guid: d64a4ce4d839ca94893b2846d51e60cf, type: 3}
   - {fileID: 5201363972652181781, guid: d64a4ce4d839ca94893b2846d51e60cf, type: 3}
-  levelMessages: []
+  levelMessages:
+  - 'Level 2: Bees!'
+  - Don't get stung!

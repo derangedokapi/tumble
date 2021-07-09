@@ -7,15 +7,14 @@ public class PanelControl : MonoBehaviour
 {
     // for the pause menu via escape button, used by InputManager
     // for the game over module, called by GameStatus
-    CanvasGroup thisCanvas;
-    CanvasController canvasControl;
-    private void Awake() {
+    [SerializeField] CanvasGroup thisCanvas;
+    [SerializeField] CanvasController canvasControl;
+    private void Start() {
         thisCanvas = GetComponent<CanvasGroup>();
         canvasControl = FindObjectOfType<CanvasController>();
         HidePanel();
     }
 
-   
 
     public void TogglePanel() {
         bool panelIsShowing = thisCanvas.alpha == 1;
@@ -27,23 +26,29 @@ public class PanelControl : MonoBehaviour
 
     }
     public void ShowPanel() {
-        
-        
+        /*
+        if (thisCanvas == null) {
+            Debug.Log("failed - trying to show panel "+thisCanvas);
+            
+            canvasControl = FindObjectOfType<CanvasController>();
+            Debug.Log("retry - trying to show panel "+thisCanvas);
+        }
+        */
+        thisCanvas = GetComponent<CanvasGroup>();
+        Time.timeScale = 0;
+        FindObjectOfType<CanvasController>().DeactivateAllChildren(gameObject.name);
+        thisCanvas.gameObject.SetActive(true);
         thisCanvas.alpha = 1;
         thisCanvas.interactable = true;
-        Time.timeScale = 0;
-    canvasControl.DeactivateAllChildren();
-    thisCanvas.gameObject.SetActive(true);
+        Debug.Log(thisCanvas+" alpha = "+thisCanvas.alpha+" int "+thisCanvas.interactable);
+       
     }
 
     public void HidePanel() {
         Time.timeScale = 1;
-        thisCanvas.alpha = 0;
+        thisCanvas.alpha = 0.1f;
         canvasControl.ActivateAllChildren();
-        //thisCanvas.interactable = false;
-    }
-
-    public void EndLevel() {
-        
+        thisCanvas.interactable = false;
+        thisCanvas.gameObject.SetActive(false);
     }
 }
