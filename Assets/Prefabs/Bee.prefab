@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedFactor: 0.3
-  damageFactor: 50
+  damageFactor: 10
   pickupAudioClip: {fileID: 8300000, guid: 6fa49f0864e6769418436a2cbdac63cb, type: 3}
 --- !u!58 &3141007537853628521
 CircleCollider2D:

@@ -744,6 +744,30 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 78437883, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 36123e2acac6ca14ca0a73b662797964, type: 3}
+    - target: {fileID: 78437883, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 78437883, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 78437883, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 78437884, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 168477236, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 230228267, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -752,21 +776,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 131537161888909593, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
-      propertyPath: introductionText.Array.size
-      value: 0
+    - target: {fileID: 973359272, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Color.a
+      value: 0.19607843
       objectReference: {fileID: 0}
-    - target: {fileID: 131537161888909593, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
-      propertyPath: randomThoughts.Array.data[5]
-      value: Ground. I wonder if it will be friends with me?
+    - target: {fileID: 973359272, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Color.b
+      value: 0.09019608
       objectReference: {fileID: 0}
-    - target: {fileID: 131537161888909593, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
-      propertyPath: randomThoughts.Array.data[6]
-      value: The trick to flying is to throw yourself at the ground and miss.
+    - target: {fileID: 973359272, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4156863
       objectReference: {fileID: 0}
-    - target: {fileID: 3918049245776341185, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 973359272, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
+      propertyPath: m_Color.r
+      value: 0.909804
       objectReference: {fileID: 0}
     - target: {fileID: 3918049245776341186, guid: 504130c3f4d2fe545ad237fc35ea9794, type: 3}
       propertyPath: m_Pivot.x
@@ -2069,14 +2093,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameStatus
       objectReference: {fileID: 0}
-    - target: {fileID: 64326165535476988, guid: 7495f276a79fbba4da7db5308980f685, type: 3}
-      propertyPath: levelConfigOptions.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: d8340eaff6dca8c4a8a4106625ce180d, type: 2}
-    - target: {fileID: 64326165535476988, guid: 7495f276a79fbba4da7db5308980f685, type: 3}
-      propertyPath: levelConfigOptions.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: fd55b850b863a2946b7f9dffd6621e6e, type: 2}
     - target: {fileID: 911946383110714431, guid: 7495f276a79fbba4da7db5308980f685, type: 3}
       propertyPath: m_RootOrder
       value: 5

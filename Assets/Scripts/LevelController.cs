@@ -85,8 +85,10 @@ public class LevelController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void ShowEndLevelOptions() {
+    public void LoadGamePage() {
+        Application.OpenURL("https://derangedokapi.itch.io/tumble-freefall");
 
     }
+ 
 
 }

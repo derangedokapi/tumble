@@ -639,7 +639,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3918049245776341190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -738,22 +738,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c41c7a0fd28d8443b85b930945eb216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsPerMessage: 6
+  secondsPerMessage: 5
   dialogueText: {fileID: 3918049246749512748}
-  introductionText:
-  - Well, hello.
-  - Somehow I was generated out of thin air.
-  - Into thin air.
-  - Use the left and right arrows to move around.
-  - I'd like to slow down before I hit the ground!
+  introductionText: []
   randomThoughts:
   - Oh no, not again.
   - Use the left and right arrows to move around.
   - Whoever wrote this episode should die!
   - The future was supposed to have jet packs!
   - Wheeeee!
-  - I wonder if it will be friends with me?
-  - Pop pop!
+  - Ground. I wonder if it will be friends with me?
+  - The trick to flying is to throw yourself at the ground and miss.
   - Float like a butterfly, sting like a bee.
 --- !u!1 &3918049246749512754
 GameObject:

@@ -41,7 +41,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7b65d38f0771b674cb1f3883728f368d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 43a0230ac4a9e54418c60256cfdca5fd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -171,8 +171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30751d3eb4f58e24f8fd53ffa5cb52fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 42
   coins: 0
+  lastCoins: 0
+  highCoins: 0
   playerHealth: 100
   musicVolume: 1
   sfxVolume: 1
@@ -181,3 +182,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d8340eaff6dca8c4a8a4106625ce180d, type: 2}
   - {fileID: 11400000, guid: 282dce03aadef054ea6be16cd210c966, type: 2}
   - {fileID: 11400000, guid: fd55b850b863a2946b7f9dffd6621e6e, type: 2}
+  - {fileID: 11400000, guid: a087d5eeb6a2e964fa386d5bdeb19168, type: 2}
+  currentLevel: 0

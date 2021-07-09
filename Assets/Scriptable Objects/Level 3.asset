@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelName: More bees!
   levelDescription: Bzzzz
-  levelDuration: 60
+  levelDuration: 30
   fallSpeed: 100
   availableEnemies:
   - {fileID: 1011619213672428154, guid: efc350b61f37922408a1ec0f30766422, type: 3}
