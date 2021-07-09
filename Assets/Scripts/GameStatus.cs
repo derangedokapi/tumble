@@ -39,10 +39,8 @@ public class GameStatus : MonoBehaviour
     }
 
     public void RestartGame() {
-        Debug.Log("high coins = "+highCoins+" coins = "+coins+" last coins = "+lastCoins);
         if (coins > highCoins) { 
             highCoins = coins;
-            Debug.Log("set highcoins to coins -- highcoins = "+highCoins);
         }
         lastCoins = coins;
         coins = 0;
@@ -79,8 +77,5 @@ public class GameStatus : MonoBehaviour
             FindObjectOfType<InputManager>().LoadGameOverPanel();
         }
     }
-
-
-
 
 }

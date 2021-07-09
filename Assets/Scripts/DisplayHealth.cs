@@ -15,4 +15,6 @@ public class DisplayHealth : MonoBehaviour
     private void Update() {
         healthSlider.value = gameStatus.playerHealth;
     }
+
+
 }

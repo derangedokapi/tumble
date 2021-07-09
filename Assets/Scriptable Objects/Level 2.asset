@@ -34,5 +34,5 @@ MonoBehaviour:
   - {fileID: 5201363972652181781, guid: d64a4ce4d839ca94893b2846d51e60cf, type: 3}
   - {fileID: 5201363972652181781, guid: d64a4ce4d839ca94893b2846d51e60cf, type: 3}
   levelMessages:
-  - 'Level 2: Bees!'
+  - 'Level 2 of 3: Bees!'
   - Don't get stung!

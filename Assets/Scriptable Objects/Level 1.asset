@@ -34,5 +34,5 @@ MonoBehaviour:
   - {fileID: 5201363972652181781, guid: 237fdf2f7de438948adc9ac6620a182d, type: 3}
   levelMessages:
   - Use the left and right arrows to move around
-  - 'Level 1: Falling!'
+  - 'Level 1 of 3: Falling!'
   - Collect some coins!

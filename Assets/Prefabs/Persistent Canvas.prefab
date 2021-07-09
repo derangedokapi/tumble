@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 36123e2acac6ca14ca0a73b662797964, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -134,7 +134,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.11054217, b: 0, a: 1}
+  m_Color: {r: 0.909804, g: 0.4156863, b: 0.09019608, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -748,8 +748,12 @@ MonoBehaviour:
   - The future was supposed to have jet packs!
   - Wheeeee!
   - Ground. I wonder if it will be friends with me?
-  - The trick to flying is to throw yourself at the ground and miss.
   - Float like a butterfly, sting like a bee.
+  - Flying like a beautiful bird
+  - The knack lies in learning how to throw yourself at the ground and miss.
+  - I'm a leaf on the wind.
+  - This is falling with style!
+  - Our greatest glory is not in never falling, but in rising every time we fall.
 --- !u!1 &3918049246749512754
 GameObject:
   m_ObjectHideFlags: 0
