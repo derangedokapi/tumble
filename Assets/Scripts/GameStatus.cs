@@ -20,6 +20,11 @@ public class GameStatus : MonoBehaviour
     public float musicVolume = 1f;
     public float sfxVolume = 1f;
     [SerializeField] AudioSource musicSource;
+    [SerializeField] Button musicButton;
+    [SerializeField] Sprite musicButtonOn;
+    [SerializeField] Sprite musicButtonOff;
+    Image musicButtonImage;
+
 
     [Header("Levels")]
     public LevelConfigSO[] levelConfigOptions;
@@ -27,6 +32,7 @@ public class GameStatus : MonoBehaviour
     public int currentLevel;
 
     InputManager inputManager;
+    
 
     private void Awake() {
         SetUpSingleton();
@@ -35,6 +41,7 @@ public class GameStatus : MonoBehaviour
     private void Start() {
         originalHealth = playerHealth;
         inputManager = FindObjectOfType<InputManager>();
+        musicButtonImage = musicButton.GetComponent<Image>();
         RestartGame();
     }
 
@@ -75,6 +82,17 @@ public class GameStatus : MonoBehaviour
         playerHealth -= damageAmount;
         if (playerHealth <= 0){
             FindObjectOfType<InputManager>().LoadGameOverPanel();
+        }
+    }
+
+    public void ToggleAudio() {
+
+        if (musicVolume == 0) {
+            ChangeMusicVolume(1);
+            musicButtonImage.sprite = musicButtonOn;
+        } else {
+            ChangeMusicVolume(0);
+            musicButtonImage.sprite = musicButtonOff;
         }
     }
 
